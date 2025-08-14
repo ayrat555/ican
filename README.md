@@ -2,6 +2,8 @@
 
 [ICAN](https://cip.coreblockchain.net/cip/cbc/cip-100/) (International Crypto Account Number). An encoding for asset/crypto addresses
 
+Ported from [bchainhub/ican.js](https://github.com/bchainhub/ican.js)
+
 ## Installation
 
 The package can be installed by adding `ican` to your list of dependencies in `mix.exs`:
