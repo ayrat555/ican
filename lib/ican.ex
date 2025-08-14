@@ -124,14 +124,6 @@ defmodule ICAN do
     "TF" => {27, "F05F05A11F02", false, "TF891234512345123456789AB13"}
   }
 
-  # Compile-time validation and creation of country specifications
-  # @countries Enum.reduce(@countries_specs, %{}, fn {cc, len, str, crypto, ex}, acc ->
-  #              case Specification.new(cc, len, str, crypto, ex) do
-  #                {:ok, spec} -> Map.put(acc, cc, spec)
-  #                {:error, reason} -> raise "Invalid specification for #{cc}: #{reason}"
-  #              end
-  #            end)
-
   # -- Public API -------------------------------------------------------------
 
   @doc """
@@ -249,9 +241,8 @@ defmodule ICAN do
   """
   @spec print_format(String.t(), String.t()) :: String.t()
   def print_format(ican, separator \\ " ") do
-    ican
-    |> electronic_format()
-    |> Regex.replace(@every_four_chars, "\\0" <> separator)
+    str = electronic_format(ican)
+    Regex.replace(@every_four_chars, str, "\\0" <> separator)
   end
 
   @doc """
@@ -321,7 +312,8 @@ defmodule ICAN do
     end)
   end
 
-  defp get_specification(country_code) do
+  @spec get_specification(String.t()) :: {:ok, spec()} | {:error, String.t()}
+  def get_specification(country_code) do
     with :ok <- Specification.validate_country_code(country_code),
          spec when not is_nil(spec) <- Map.get(@countries_specs, country_code) do
       {len, structure, crypto, example} = spec

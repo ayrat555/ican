@@ -66,7 +66,6 @@ defmodule ICAN.Specification do
       "enter" -> :enter
       "enterprise" -> :enter
       true -> :any_crypto
-      _ -> false
     end
   end
 
@@ -87,15 +86,11 @@ defmodule ICAN.Specification do
   def is_valid(%__MODULE__{} = spec, ican, only_crypto \\ false) when is_binary(ican) do
     ican = ICAN.electronic_format(ican)
 
-    with true <- spec.length == String.length(ican),
-         true <- spec.country_code == String.slice(ican, 0, 2),
-         true <- is_matching_crypto(spec, only_crypto),
-         true <- Regex.match?(spec.regex, String.slice(ican, 4..-1//1)),
-         1 <- ICAN.iso7064_mod97(ICAN.iso13616_prepare(ican)) do
-      true
-    else
-      _ -> false
-    end
+    spec.length == String.length(ican) and
+      spec.country_code == String.slice(ican, 0, 2) and
+      is_matching_crypto(spec, only_crypto) and
+      Regex.match?(spec.regex, String.slice(ican, 4..-1//1)) and
+      ICAN.iso7064_mod97(ICAN.iso13616_prepare(ican)) == 1
   end
 
   defp is_matching_crypto(%__MODULE__{crypto: spec_crypto}, only_crypto) do
