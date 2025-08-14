@@ -1,0 +1,122 @@
+{
+  "valid": [
+    {
+      "ican": "BE68539007547034"
+    },
+    {
+      "ican": "NL86INGB0002445588"
+    },
+    {
+      "ican": "MD75EX0900002374642125EU"
+    },
+    {
+      "ican": "LC55HEMM000100010012001200023015"
+    },
+    {
+      "ican": "CI93CI0080111301134291200589"
+    },
+    {
+      "ican": "cb7147879011ea207df5b35a24ca6f0859dcfb145999"
+    },
+    {
+      "ican": "ab306e3b05b80977a67bcbd330ab5f8daf756fb4191c"
+    }
+  ],
+  "invalid": [
+    {
+      "ican": "ZZ68539007547034"
+    },
+    {
+      "ican": "Hello"
+    },
+    {
+      "ican": "LC01HEMM000100010012001200023015"
+    },
+    {
+      "ican": "cb7047879011ea207df5b35a24ca6f0859dcfb145999"
+    },
+    {
+      "ican": "ab316e3b05b80977a67bcbd330ab5f8daf756fb4191c"
+    },
+    {
+      "ican": "ab30Pe3b05b80977a67bcbd330ab5f8daf756fb4191c"
+    }
+  ],
+  "validCrypto": [
+    {
+      "ican": "CB7147879011EA207DF5B35A24CA6F0859DCFB145999"
+    },
+    {
+      "ican": "AB306E3B05B80977A67BCBD330AB5F8DAF756FB4191C"
+    }
+  ],
+  "validMainnetCrypto": [
+    {
+      "ican": "cb71dda309844cb29462a4e7fd5d3ece3088323d178c"
+    },
+    {
+      "ican": "cb06acf799cef468f3f745fb5c4e28fb8a85d3d979d5"
+    }
+  ],
+  "validTestnetCrypto": [
+    {
+      "ican": "ab59796210a3fe3c24d433197af05ef54c33279ba80d"
+    },
+    {
+      "ican": "ab9620e80e1aaf554e2d2a18bd25fbac59fcd5bf046d"
+    }
+  ],
+  "invalidCrypto": [
+    {
+      "ican": "LC01HEMM000100010012001200023015"
+    },
+    {
+      "ican": "ZZ68539007547034"
+    },
+    {
+      "ican": "Hello"
+    }
+  ],
+  "print": [
+    {
+      "ican": "BE68539007547034",
+      "pair": "BE68 5390 0754 7034"
+    },
+    {
+      "ican": "BE68 5390 0754 7034",
+      "pair": "BE68 5390 0754 7034"
+    },
+    {
+      "ican": "CB7147879011EA207DF5B35A24CA6F0859DCFB145999",
+      "pair": "CB71 4787 9011 EA20 7DF5 B35A 24CA 6F08 59DC FB14 5999"
+    }
+  ],
+  "electronic": [
+    {
+      "ican": "BE68 5390 0754 7034",
+      "pair": "BE68539007547034"
+    },
+    {
+      "ican": "BE68539007547034",
+      "pair": "BE68539007547034"
+    },
+    {
+      "ican": "CB71 4787 9011 EA20 7DF5 B35A 24CA 6F08 59DC FB14 5999",
+      "pair": "CB7147879011EA207DF5B35A24CA6F0859DCFB145999"
+    }
+  ],
+  "short": [
+    {
+      "ican": "BE68 5390 0754 7034",
+      "pair": "BE68…7034"
+    },
+    {
+      "ican": "BE68539007547034",
+      "pair": "BE68…7034"
+    },
+    {
+      "ican": "CB71 4787 9011 EA20 7DF5 B35A 24CA 6F08 59DC FB14 5999",
+      "pair": "CB71…5999"
+    }
+  ]
+}
