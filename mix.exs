@@ -28,7 +28,8 @@ defmodule ICAN.MixProject do
   defp deps do
     [
       {:jason, "~> 1.4", only: :test},
-      {:styler, "~> 1.5", only: [:dev, :test], runtime: false}
+      {:styler, "~> 1.5", only: [:dev, :test], runtime: false},
+      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
     ]
   end
 end
