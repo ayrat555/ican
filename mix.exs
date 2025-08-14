@@ -7,7 +7,13 @@ defmodule ICAN.MixProject do
       version: "0.1.0",
       elixir: "~> 1.18",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      description: "ICAN (International Crypto Account Number). An encoding for asset/crypto addresses",
+      package: [
+        maintainers: ["Airat Badykov"],
+        licenses: ["MIT"],
+        links: %{"GitHub" => "https://github.com/ayrat555/ican"}
+      ]
     ]
   end
 
@@ -23,8 +29,6 @@ defmodule ICAN.MixProject do
     [
       {:jason, "~> 1.4", only: :test},
       {:styler, "~> 1.5", only: [:dev, :test], runtime: false}
-      # {:dep_from_hexpm, "~> 0.3.0"},
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
     ]
   end
 end

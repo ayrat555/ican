@@ -14,8 +14,6 @@ defmodule ICAN do
   @type crypto :: :main | :test | :enter | false
   @type spec :: Specification.t()
 
-  # Define country specifications statically
-
   @countries_specs %{
     "QA" => {29, "U04A21", false, "QA30AAAA123456789012345678901"},
     "MR" => {27, "F05F05F11F02", false, "MR1300020001010000123456753"},
