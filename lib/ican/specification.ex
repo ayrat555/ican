@@ -58,14 +58,14 @@ defmodule ICAN.Specification do
 
   defp normalize_crypto(crypto) do
     case crypto do
-      atom when atom in [:main, :test, :enter, false] -> atom
+      atom when atom in [:main, :test, :enter] -> atom
       "main" -> :main
       "mainnet" -> :main
       "test" -> :test
       "testnet" -> :test
       "enter" -> :enter
       "enterprise" -> :enter
-      true -> :any_crypto
+      other -> other
     end
   end
 
@@ -88,16 +88,18 @@ defmodule ICAN.Specification do
 
     spec.length == String.length(ican) and
       spec.country_code == String.slice(ican, 0, 2) and
-      is_matching_crypto(spec, only_crypto) and
+      (!only_crypto || is_matching_crypto(spec, only_crypto)) and
       Regex.match?(spec.regex, String.slice(ican, 4..-1//1)) and
       ICAN.iso7064_mod97(ICAN.iso13616_prepare(ican)) == 1
   end
 
   defp is_matching_crypto(%__MODULE__{crypto: spec_crypto}, only_crypto) do
-    case normalize_crypto(only_crypto) do
-      :any_crypto -> spec_crypto != false
-      nil -> true
-      crypto -> spec_crypto == crypto
+    normalized_crypto = normalize_crypto(only_crypto)
+
+    if normalized_crypto == true do
+      spec_crypto != false
+    else
+      normalized_crypto == spec_crypto
     end
   end
 
